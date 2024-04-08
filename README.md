@@ -1,14 +1,8 @@
-migration to typeScript with async-thunk functions
+# React + Vite
 
-sources: 
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
+Currently, two official plugins are available:
 
-sources:
-
-1. https://www.youtube.com/watch?v=KalDm1KwU5A&list=PLiZoB8JBsdznQv3kAEvTzDP2qjaUI8Vo7&index=8
-
-2. https://redux-toolkit.js.org/tutorials/typescript
-
-instruction how to migrate to TypeScript:
-
-https://www.youtube.com/watch?v=k6Ll7j6MIzQ&ab_channel=Reactify
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
