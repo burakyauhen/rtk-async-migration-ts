@@ -1,10 +1,11 @@
 import "./App.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { InputField } from "./components/InputField";
 import { TodoList } from "./components/TodoList";
-import { todoAdded } from "./store/TodoSlice";
 import { useAppDispatch } from "./hooks";
 import { FC } from "react";
+import { fetchTodos } from "./store/TodoSlice";
+import { addNewTodo } from "./store/TodoSlice";
 
 const App: FC = () => {
   const [title, setTitle] = useState('');
@@ -12,11 +13,14 @@ const App: FC = () => {
   const dispatch = useAppDispatch();
 
   const handleAddTodo = (title: string) => {
-    dispatch(todoAdded(title));
+    dispatch(addNewTodo(title));
     setTitle('');
   }
 
-
+  useEffect(() => {
+    dispatch(fetchTodos());
+  }, [dispatch]);
+  
   
   return (
     <div className="App">
@@ -25,9 +29,7 @@ const App: FC = () => {
         handleAddTodo={handleAddTodo}
         setTitle={setTitle}
       />
-
       <TodoList />
-
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { todoDeleted, todoToggled } from "../store/TodoSlice";
+import { toggleStatus, deleteTodo } from "../store/TodoSlice";
 import { useAppDispatch } from "../hooks";
 import { FC } from "react";
 
@@ -12,9 +12,9 @@ const TodoItem: FC<TodoItemProps> = ({ title, id, completed }) => {
     const dispatch = useAppDispatch();
     return (
         <li>
-            <input type="checkbox" checked={completed} onChange={() => dispatch(todoToggled(id))} />
+            <input type="checkbox" checked={completed} onChange={() => dispatch(toggleStatus(id))} />
             <span>{title}</span>
-         <span className="delete" onClick={()=> dispatch(todoDeleted(id))} >&times;</span>
+         <span className="delete" onClick={()=> dispatch(deleteTodo(id))} >&times;</span>
         </li>    
 
     );
