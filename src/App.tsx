@@ -3,26 +3,15 @@ import { useState } from "react";
 import { InputField } from "./components/InputField";
 import { TodoList } from "./components/TodoList";
 import { todoAdded } from "./store/TodoSlice";
-import { useDispatch } from "react-redux"
+import { useAppDispatch } from "./hooks";
+import { FC } from "react";
 
-const App = () => {
+const App: FC = () => {
   const [title, setTitle] = useState('');
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
-  // const addTodos = () => {
-  //   setTodos([
-  //     ...todos,
-  //     {
-  //       id: new Date().toISOString(),
-  //       text,
-  //       completed: false,
-  //     }
-  //   ]);
-  //   setText('');
-  // }
-
-  const handleAddTodo = (title) => {
+  const handleAddTodo = (title: string) => {
     dispatch(todoAdded(title));
     setTitle('');
   }
